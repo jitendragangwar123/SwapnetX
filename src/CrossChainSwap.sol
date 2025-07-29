@@ -6,7 +6,7 @@ import "./interfaces/IERC20.sol";
 
 contract CrossChainSwap {
     address public owner;
-    I1inchFusion public fusion; 
+    I1inchFusion public fusion;
     mapping(bytes32 => Swap) public swaps;
 
     struct Swap {
@@ -18,7 +18,9 @@ contract CrossChainSwap {
         bool active;
     }
 
-    event SwapInitiated(bytes32 indexed swapId, address initiator, address token, uint256 amount, bytes32 secretHash, uint256 timelock);
+    event SwapInitiated(
+        bytes32 indexed swapId, address initiator, address token, uint256 amount, bytes32 secretHash, uint256 timelock
+    );
     event SwapCompleted(bytes32 indexed swapId, address receiver, uint256 amount);
     event SwapRefunded(bytes32 indexed swapId);
 
